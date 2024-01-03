@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('employee_delays', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
-            $table->string('school_name')->nullable();
+            $table->foreignId('year_id')->constrained('years');
+            $table->foreignId('employee_id')->constrained('employees');
+            $table->date('date')->nullable();
+            $table->double('period_delay')->nullable();
+            $table->boolean('type')->nullable();
+            $table->string('supervisor_notes')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
+
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('employee_delays');
     }
 };

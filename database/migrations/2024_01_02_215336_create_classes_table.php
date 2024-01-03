@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('year_id')->constrained('years');
-            $table->string('name');
-            $table->integer('maximum_number');
-            $table->double('annual_installment');
-            $table->string('created_by');
-            $table->string('updated_by');
+            $table->string('name')->nullable();
+            $table->integer('maximum_number')->nullable();
+            $table->double('annual_installment')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

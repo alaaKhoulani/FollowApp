@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('revenues', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
-            $table->string('school_name')->nullable();
+
+            $table->foreignId('student_id')->constrained('students');
+            $table->foreignId('year_id')->constrained('years');
+            $table->integer('receipt_number')->nullable();
+            $table->date('payment_date')->nullable();
+            $table->double('amount')->nullable();
+            $table->string('note')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('revenues');
     }
 };
