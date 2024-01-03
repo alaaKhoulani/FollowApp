@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('year_id')->constrained('years');
-            $table->string('name');
-            $table->string('created_by');
-            $table->string('updated_by');
+            $table->string('name')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

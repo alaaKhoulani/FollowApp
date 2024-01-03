@@ -13,13 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('discounts', function (Blueprint $table) {
+        Schema::create('employee_absences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('year_id')->constrained('years');
-            $table->double('discount_value')->nullable();
-            $table->string('notes')->nullable();
+            $table->foreignId('employee_id')->constrained('employees');
+            $table->date('date')->nullable();
+            $table->string('vacation_type')->nullable();
+            $table->string('absence_type')->nullable();
+            $table->string('justification_type')->nullable();
+            $table->string('reason')->nullable();
+            $table->string('note')->nullable();
+            $table->string('from_hour')->nullable();
+            $table->string('to_hour')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
+
             $table->timestamps();
         });
     }
@@ -31,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discounts');
+        Schema::dropIfExists('employee_absences');
     }
 };

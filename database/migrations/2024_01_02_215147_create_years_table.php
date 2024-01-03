@@ -16,14 +16,18 @@ return new class extends Migration
         Schema::create('years', function (Blueprint $table) {
             $table->id();
             $table->foreignId('admin_id')->constrained('admins');
-            $table->string('name');
-            $table->integer('first_year');
-            $table->integer('second_year');
-            $table->integer('days_of_semester1');
-            $table->integer('days_of_semester2');
-            $table->boolean('status');
-            $table->string('created_by');
-            $table->string('updated_by');
+            $table->string('name')->nullable();
+            $table->integer('first_year')->nullable();
+            $table->integer('second_year')->nullable();
+            $table->integer('days_of_semester1')->nullable();
+            $table->integer('days_of_semester2')->nullable();
+            $table->date('start_of_semester1')->nullable();
+            $table->date('end_of_semester1')->nullable();
+            $table->date('start_of_semester2')->nullable();
+            $table->date('end_of_semester2')->nullable();
+            $table->boolean('status')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

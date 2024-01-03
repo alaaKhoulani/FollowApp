@@ -13,13 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('discounts', function (Blueprint $table) {
+        Schema::create('teacher_delays', function (Blueprint $table) {
             $table->id();
             $table->foreignId('year_id')->constrained('years');
-            $table->double('discount_value')->nullable();
-            $table->string('notes')->nullable();
+            $table->foreignId('employee_id')->constrained('employees');
+            $table->foreignId('class_id')->constrained('classes');
+            $table->foreignId('section_id')->constrained('sections');
+            $table->date('date')->nullable();
+            $table->string('delay_type')->nullable();
+            $table->string('session')->nullable();
+            $table->double('period_delay')->nullable();
+            $table->string('supervisor_notes')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
+
             $table->timestamps();
         });
     }
@@ -31,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discounts');
+        Schema::dropIfExists('teacher_delays');
     }
 };

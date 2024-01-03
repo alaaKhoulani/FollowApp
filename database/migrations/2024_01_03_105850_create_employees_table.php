@@ -13,17 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detailed_subjects', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->foreignId('year_id')->constrained('years');
-            $table->foreignId('subject_id')->constrained('subjects');
+            $table->foreignId('position_id')->constrained('positions');
             $table->string('name')->nullable();
+            $table->string('phone_num')->nullable();
+            $table->string('mobile_num')->nullable();
+            $table->string('address')->nullable();
             $table->string('type')->nullable();
-            $table->integer('maximum_mark')->nullable();
-            $table->integer('minimum_mark')->nullable();
-            $table->boolean('has_mark_parts')->nullable();
-            $table->integer('mark_of_semester1')->nullable();
-            $table->integer('mark_of_semester2')->nullable();
+            $table->string('salary')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('social_state')->nullable();
+            $table->string('health_state')->nullable();
+            $table->string('note')->nullable();
+            $table->date('start_job')->nullable();
+            $table->date('exit_job')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
@@ -37,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detailed_subjects');
+        Schema::dropIfExists('employees');
     }
 };
