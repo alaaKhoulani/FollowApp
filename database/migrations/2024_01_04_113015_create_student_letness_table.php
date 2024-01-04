@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('revenues', function (Blueprint $table) {
+        Schema::create('student_letness', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('student_id')->constrained('students');
             $table->foreignId('year_id')->constrained('years');
-            $table->integer('receipt_number')->nullable();
-            $table->date('payment_date')->nullable();
-            $table->double('amount')->nullable();
-            $table->string('note')->nullable();
+            $table->foreignId('student_id')->constrained('students');
+            $table->string('resason')->nullable();
+            $table->double('duration_of_delay')->nullable();
+            $table->date('date_of_letness')->nullable();
+            $table->string('type_of_letness')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revenues');
+        Schema::dropIfExists('student_letness');
     }
 };
