@@ -98,4 +98,16 @@ class Student extends Model
     {
         return $this->hasMany(Student_Exam::class);
     }
+    public function Student_Absences()
+    {
+        return $this->hasMany(Student_Absence::class);
+    }
+    public function student_Letness()
+    {
+        return $this->hasMany(Student_Letness::class);
+    }
+    public function student_Behaviorals()
+    {
+        return $this->hasMany(student_Behavioral::class);
+    }
 }

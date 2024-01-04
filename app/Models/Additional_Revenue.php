@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Additional_Revenue extends Model
 {
     use HasFactory;
-
-
     protected $fillable = [
         'year_id',
         'name',
+        'amount',
+        'date_of_receipt',
+        'description',
         'created_by',
         'updated_by',
     ];
@@ -21,15 +22,5 @@ class Region extends Model
     {
         return $this->belongsTo(Year::class);
     }
-
-    public function students()
-    {
-        return $this->hasMany(Student::class);
-    }
-    public function Trips()
-    {
-        return $this->hasMany(Trip::class);
-    }
-
 
 }

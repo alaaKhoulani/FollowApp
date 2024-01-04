@@ -151,5 +151,40 @@ class Year extends Model
         return $this->hasMany(Student_Exam::class);
     }
 
+    public function Additional_Expenses()
+    {
+        return $this->hasMany(Additional_Expense::class);
+    }
+
+    public function Additional_Revenues()
+    {
+        return $this->hasMany(Additional_Revenue::class);
+    }
+
+    
+    public function Contractors()
+    {
+        return $this->hasMany(Contractor::class);
+    }
+    public function Buses()
+    {
+        return $this->hasMany(Bus::class);
+    }
+    public function Trips()
+    {
+        return $this->hasMany(Trip::class);
+    }
+    public function Student_Absences()
+    {
+        return $this->hasMany(Student_Absence::class);
+    }
+    public function student_Letness()
+    {
+        return $this->hasMany(Student_Letness::class);
+    }
+    public function student_Behaviorals()
+    {
+        return $this->hasMany(student_Behavioral::class);
+    }
 
 }

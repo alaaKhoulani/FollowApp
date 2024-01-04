@@ -5,31 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Bus extends Model
 {
     use HasFactory;
-
-
     protected $fillable = [
-        'year_id',
-        'name',
+        'contractor_id',
+        'bus_name',
+        'bus_number',
+        'driver_number',
+        'max_capacity',
         'created_by',
         'updated_by',
     ];
 
-    public function year()
+ public function contractor()
     {
-        return $this->belongsTo(Year::class);
+        return $this->belongsTo(Contractor::class);
     }
 
-    public function students()
-    {
-        return $this->hasMany(Student::class);
-    }
     public function Trips()
     {
         return $this->hasMany(Trip::class);
     }
-
 
 }

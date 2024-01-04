@@ -82,4 +82,8 @@ class Employee extends Model
     {
         return $this->hasMany(Employee_Payment::class);
     }
+    public function Trips()
+    {
+        return $this->hasMany(Trip::class);
+    }
 }

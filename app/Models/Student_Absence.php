@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Student_Absence extends Model
 {
     use HasFactory;
-
-
     protected $fillable = [
         'year_id',
-        'name',
+        'student_id',
+        'reason',
+        'date_of_absence',
+        'type_of_absence',
         'created_by',
         'updated_by',
     ];
@@ -21,14 +22,9 @@ class Region extends Model
     {
         return $this->belongsTo(Year::class);
     }
-
-    public function students()
+    public function Students()
     {
-        return $this->hasMany(Student::class);
-    }
-    public function Trips()
-    {
-        return $this->hasMany(Trip::class);
+        return $this->belongsTo(Student::class);
     }
 
 
