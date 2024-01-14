@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('section_id')->constrained('sections');
             $table->foreignId('region_id')->constrained('regions');
             $table->foreignId('discount_id')->constrained('discounts');
-           $table->foreignId('trip_id')->constrained('trips');
+            $table->foreignId('trip_id')->constrained('trips');
             $table->integer('GUID')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
