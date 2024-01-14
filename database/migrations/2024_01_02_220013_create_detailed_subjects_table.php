@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('year_id')->constrained('years');
             $table->foreignId('subject_id')->constrained('subjects');
             $table->string('name')->nullable();
-            $table->string('type')->nullable();
             $table->integer('maximum_mark')->nullable();
             $table->integer('minimum_mark')->nullable();
             $table->boolean('has_mark_parts')->nullable();

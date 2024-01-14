@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('student_oral_tests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('year_id')->constrained('years');
+            $table->foreignId('student_id')->constrained('students');
+            $table->foreignId('detailed_subject_id')->constrained('detailed_subjects');
+            $table->string('rate')->nullable();
+            $table->string('max_rate')->nullable();
+            $table->boolean('is_seen')->nullable();
+            $table->boolean('is_wait')->nullable();
+            $table->integer('deserved_mark')->nullable();
+            $table->date('date')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }
